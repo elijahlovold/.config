@@ -143,7 +143,8 @@ bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
 # add keybinds to move windows between displays
-bindsym $mod+n move workspace to output next
+bindsym $mod+n move workspace to output right
+bindsym $mod+Shift+n move workspace to output left
 
 bindsym $mod+r mode "resize"
 
@@ -190,8 +191,8 @@ exec_always --no-startup-id feh --bg-scale ~/.config/i3/background.png
 # exec_always --no-startup-id autotiling -sr "1.61"
 
 # Configure additional display 
-# exec --no-startup-id xrandr --output eDP-1 --scale 0.5x0.5 --pos 0x0
-# exec --no-startup-id xrandr --output HDMI-1 --right-of eDP-1 --scale 0.8x0.8
+exec_always --no-startup-id xrandr --output eDP-1 --scale 0.5x0.5 --pos 0x0
+exec_always --no-startup-id xrandr --output HDMI-1 --mode 3840x2160 --rate 30 --right-of eDP-1 --scale 1x1
 
 # Screenshot bindings
 bindsym --release Print exec scrot -s ~/Pictures/screenshot_%Y-%m-%d_%H%M%S.png  # Selective screenshot
@@ -208,6 +209,9 @@ bindsym $mod+g exec google-chrome
 
 # open python
 bindsym $mod+p exec alacritty -e python3
+
+# open spotify
+bindsym $mod+m exec spotify
 
 # open nvim
 bindsym $mod+v exec alacritty -e nvim
